@@ -1,9 +1,27 @@
-import { redirect } from "react-router-dom"
+import { redirect, useNavigate } from "react-router-dom"
+import React from "react";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+
 
 export async function requireAuth() {
-    const isLoggedIn = false
+    const auth = getAuth();
+    let islogin = false
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+   
+    const uid = user.uid;
+
+    islogin = auth
     
-    if (!isLoggedIn) {
-        throw redirect("/login?message=You must log in first")
-    }
+
+        // ...
+  } else {
+    // User is signed out
+    // ...
+    islogin = auth
+    throw redirect("/login?message=You must log in first")
+  }
+});
+   
 }
+

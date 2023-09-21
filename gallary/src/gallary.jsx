@@ -18,7 +18,13 @@ import {
 
 import {SortableItem1 } from './sort';
 import './App.css'
+import { requireAuth } from './requiredauth'
 
+export async function loader() {
+       await requireAuth()
+       return null
+
+}
 export default function Gallary() {
   const [items, setItems] = React.useState([1, 2, 3, 4, 5]);
   //const [items2, setItem2] = useState([1, 2, 3]);

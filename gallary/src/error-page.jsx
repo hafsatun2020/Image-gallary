@@ -11,7 +11,7 @@ export default function ErrorPage() {
         
           <div id="error-status">
              
-              <p>Sorry, unable to get movie details now!</p>
+              <p>Sorry, unable to get images  now!</p>
               
             </div>
            

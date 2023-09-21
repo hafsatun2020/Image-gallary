@@ -8,7 +8,7 @@ import {
   createRoutesFromElements,
   Route, redirect} from "react-router-dom"
 
-import Gallary from './gallary'
+import Gallary, {loader as gallloader} from './gallary'
 import AuthRequired from './authpage'
 import ErrorPage from './error-page'
 import { requireAuth } from './requiredauth'
@@ -23,7 +23,7 @@ const router = createBrowserRouter(createRoutesFromElements(
             //protected routes nest page/rout in authpage
      
             <Route path="gallary" element={<Gallary />}  
-          loader={async () => await requireAuth()}
+          loader={gallloader}
            
             />
      

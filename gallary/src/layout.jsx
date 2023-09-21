@@ -8,7 +8,7 @@ export default function Layout() {
     <nav>
     
       <Link to="/">Home</Link>
-      <Link to="gallary">Gallary</Link>
+     
       <Link to="login">Login</Link>
     </nav>
     <main>
