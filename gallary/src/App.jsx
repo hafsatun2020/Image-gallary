@@ -17,12 +17,12 @@ import { Auth0Provider } from '@auth0/auth0-react';
 import Home from './home'
 const router = createBrowserRouter(createRoutesFromElements(
   <Route path="/" element={<Layout />}   >
-    <Route index element={<Home />} />
-   <Route path="login" element={<Login />}  action={loginAction}     loader={loginLoader} />
+    <Route index element={<Home />} errorElement={<ErrorPage/>} />
+   <Route path="login" element={<Login />}  action={loginAction}    errorElement={<ErrorPage/>} loader={loginLoader} />
 
             //protected routes nest page/rout in authpage
      
-            <Route path="gallary" element={<Gallary />}  
+            <Route path="gallary" element={<Gallary />}  errorElement={<ErrorPage/>}
           loader={gallloader}
            
             />

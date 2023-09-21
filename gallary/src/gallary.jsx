@@ -37,7 +37,7 @@ export default function Gallary() {
 
   return (
     <>
-     <h1>Gallary</h1>
+     <h1>DragNdrop images HERE</h1>
     <div className='container' >
       <DndContext 
       sensors={sensors}

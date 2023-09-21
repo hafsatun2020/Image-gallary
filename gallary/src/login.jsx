@@ -89,6 +89,30 @@ createUserWithEmailAndPassword(auth, email, password)
 
 }
 
+function handlelogin(e) {
+    e.preventDefault()
+
+    let email = loginFormData.email
+    let password = loginFormData.password
+    signInWithEmailAndPassword(auth, email, password)
+  .then((userCredential) => {
+    // Signed in 
+    const dt = new Date()
+    const user = userCredential.user;
+    update(ref(database, 'users/'+  user.uid),{
+        last_login: dt
+    })
+    alert ('user logged in successfully!')
+    navigate("/gallary", { replace: true })
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    alert (errorMessage)
+  });
+
+}
+
    function handleChange(e) {
         const { name, value } = e.target
         setLoginFormData(prev => ({
